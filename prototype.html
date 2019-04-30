@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Simply Writing Music</title>
+    <title>Simply Writing Music Prototype</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -22,14 +22,16 @@
             text-align: center;
         }
 
-        .signup, .signin {
+        .signup,
+        .signin {
             border: 5px solid white;
             margin-top: 2.5%;
             width: 100%;
             background-color: white;
         }
-        
-        #signinBTN, #signupBTN {
+
+        #signinBTN,
+        #signupBTN {
             text-align: center;
             width: 150px;
             border-radius: 30px;
@@ -39,7 +41,8 @@
             margin-right: auto;
         }
 
-        #signinBTN:hover, #signupBTN:hover {
+        #signinBTN:hover,
+        #signupBTN:hover {
             background-color: purple;
             color: white;
             transition: 1s all;
@@ -59,8 +62,8 @@
         #piano {
             align-content: center;
             top: 20vmin;
-            height: 22vmin;
-            width: 50vmin;
+            height: 24vmin;
+            width: 100vmin;
             border: 1px solid;
             background-color: black;
         }
@@ -69,7 +72,7 @@
             position: absolute;
             border: 1px solid;
             width: 7vmin;
-            height: 20vmin;
+            height: 22vmin;
             background-color: white;
         }
 
@@ -80,27 +83,59 @@
 
 
         #cNote {
-            left: 7vmin;
+            left: 3vmin;
         }
 
         #dNote {
-            left: 14vmin;
+            left: 10vmin;
         }
 
         #eNote {
-            left: 21vmin;
+            left: 17vmin;
         }
 
         #fNote {
-            left: 28vmin;
+            left: 24vmin;
         }
 
         #gNote {
-            left: 35vmin;
+            left: 31vmin;
         }
 
         #aNote {
-            left: 42vmin;
+            left: 38vmin;
+        }
+
+        #bNote {
+            left: 45vmin;
+        }
+
+        #cNote2 {
+            left: 52vmin;
+        }
+
+        #dNote2 {
+            left: 59vmin;
+        }
+
+        #eNote2 {
+            left: 66vmin;
+        }
+
+        #fNote2 {
+            left: 73vmin;
+        }
+
+        #gNote2 {
+            left: 80vmin;
+        }
+
+        #aNote2 {
+            left: 87vmin;
+        }
+
+        #bNote2 {
+            left: 94vmin;
         }
 
         .bNote {
@@ -116,28 +151,45 @@
             border: 1px solid black;
         }
 
-        #bbNoteleft {
-            left: -1vmin;
-        }
 
         #dbNote {
-            left: 13vmin;
+            left: 9vmin;
         }
 
         #ebNote {
-            left: 20vmin;
+            left: 16vmin;
         }
 
         #gbNote {
-            left: 34vmin;
+            left: 30vmin;
         }
 
         #abNote {
-            left: 41vmin;
+            left: 37vmin;
         }
 
         #bbNote {
-            left: 47vmin;
+            left: 44vmin;
+        }
+
+        #dbNote2 {
+            left: 58vmin;
+        }
+
+        #ebNote2 {
+            left: 65vmin;
+        }
+
+        #gbNote2 {
+            left: 79vmin;
+        }
+
+        #abNote2 {
+            left: 86vmin;
+        }
+
+        #bbNote2 {
+            left: 93vmin;
         }
 
         #sharePage {
@@ -174,6 +226,7 @@
 </head>
 
 <body>
+
     <div id="navboi">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -299,21 +352,34 @@
                         <textarea class="form-control" rows="3" id="comment" placeholder="Write your chords and melodies here"></textarea>
                     </div>
                 </div>
-            </div>
+            </div><br>
 
             <div id="piano">
-                <div id="bNote" class="Note"></div>
                 <div id="cNote" class="Note"></div>
                 <div id="dNote" class="Note"></div>
                 <div id="eNote" class="Note"></div>
                 <div id="fNote" class="Note"></div>
                 <div id="gNote" class="Note"></div>
                 <div id="aNote" class="Note"></div>
+                <div id="bNote" class="Note"></div>
                 <div id="dbNote" class="bNote"></div>
                 <div id="ebNote" class="bNote"></div>
                 <div id="gbNote" class="bNote"></div>
                 <div id="abNote" class="bNote"></div>
                 <div id="bbNote" class="bNote"></div>
+
+                <div id="cNote2" class="Note"></div>
+                <div id="dNote2" class="Note"></div>
+                <div id="eNote2" class="Note"></div>
+                <div id="fNote2" class="Note"></div>
+                <div id="gNote2" class="Note"></div>
+                <div id="aNote2" class="Note"></div>
+                <div id="bNote2" class="Note"></div>
+                <div id="dbNote2" class="bNote"></div>
+                <div id="ebNote2" class="bNote"></div>
+                <div id="gbNote2" class="bNote"></div>
+                <div id="abNote2" class="bNote"></div>
+                <div id="bbNote2" class="bNote"></div>
             </div>
 
         </div>
@@ -384,13 +450,13 @@
 
 
 
-
         homeBTN.addEventListener("click", showHome, false);
         writeBTN.addEventListener("click", showWrite, false);
         shareBTN.addEventListener("click", showShare, false);
         learnBTN.addEventListener("click", showLearn, false);
         submitBTN.addEventListener("click", showUpload2, false);
         submitBTN2.addEventListener("click", showUpload, false);
+
 
 
         $(document).ready(function() {
@@ -429,6 +495,8 @@
                 $("#learnBTN").addClass("active");
             });
         });
+
+
 
         function showHome() {
             homePage.style.display = "block";
