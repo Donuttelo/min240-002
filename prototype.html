@@ -59,6 +59,22 @@
             display: none;
         }
 
+        #save {
+            text-align: center;
+            width: 150px;
+            border-radius: 30px;
+            color: black;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #save:hover {
+            background-color: purple;
+            color: white;
+            transition: 1s all;
+        }
+
         #piano {
             align-content: center;
             top: 20vmin;
@@ -192,6 +208,47 @@
             left: 93vmin;
         }
 
+        #musicNotes {
+            left: 90px;
+            background-color: black;
+        }
+
+        #musicNote_1 {
+            width: 10vmin;
+            height: 10vmin;
+            clip-path: polygon(50% 0%, 50% 100%, 30% 100%, 30% 80%, 45% 80%, 45% 0%);
+            z-index: 100;
+            background-color: white;
+            animation: fadeIn 1s,
+                slideUp 2s 1s infinite;
+            filter: blur(.5px)
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10%)
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
         #sharePage {
             top: 10vh;
             position: absolute;
@@ -285,18 +342,22 @@
 
                     </ul>
 
-                </div><br>
-                <div id="signin" class="col-lg-12" style="color: white;"> Sign in
+                </div>
+                <p style="color: black"><br>.<br></p>
+                <div id="signin" class="col-lg-12" style="border-top: 5px solid white"> <br>
+                    <p style="color: white">Sign in</p>
                     <input id="emailIn" class="signin" placeholder="Email">
                     <br><input id="passIn" class="signin" type="password" placeholder="Password">
-                    <div id="signinBTN" class="signin">Sign in</div><br><br>
-                    <div id="signin">Don't have an account? Sign up here!</div>
+                    <button id="signinBTN" class="signin">Sign in</button><br><br><br><br>
+                    <div id="signin" style="border-top: 5px solid white">
+                        <p style="color: white"><br><br>Don't have an account? Sign up here!</p>
+                    </div>
                     <input id="first" class="signup" placeholder="First name">
                     <br><input id="last" class="signup" placeholder="Last name">
                     <br><input id="email" class="signup" placeholder="Email">
                     <br><input id="pass" class="signup" type="password" placeholder="Password">
                     <br><input id="conpass" class="signup" type="password" placeholder="Confirm password">
-                    <div id="signupBTN" class="signup">Create</div>
+                    <button id="signupBTN" class="signup">Create</button>
                     <br>
 
 
@@ -352,7 +413,8 @@
                         <textarea class="form-control" rows="3" id="comment" placeholder="Write your chords and melodies here"></textarea>
                     </div>
                 </div>
-            </div><br>
+            </div>
+            <button id="save" class="signup">Save Song</button><br><br><br><br>
 
             <div id="piano">
                 <div id="cNote" class="Note"></div>
@@ -380,9 +442,20 @@
                 <div id="gbNote2" class="bNote"></div>
                 <div id="abNote2" class="bNote"></div>
                 <div id="bbNote2" class="bNote"></div>
-            </div>
 
+            </div>
         </div>
+
+
+
+        <footer>
+            <div id="musicNotes" class="footer-copyright text-center py-3" style="color: white;">
+
+                <br><br>
+                <div id="musicNote_1"></div><br><br>
+
+            </div>
+        </footer>
     </div>
 
     <div id="sharePage">
@@ -405,7 +478,7 @@
                     </div>
 
                 </div>
-                <div id="upload2" class="col-sm-12" style="background-color:dimgrey; color: white; border: 5px solid black; padding: 15px; display: none">
+                <div id="upload2" class="col-sm-12" style="background-color:dimgrey; color: white; border: 5px solid black; padding: 15px; display: none; width: 100vw;">
 
                     <div class="input-group">
                         <p>Your song has been submitted! </p>
@@ -422,12 +495,20 @@
             <div class="row" ;>
                 <div class="col-sm-12" style="background-color:dimgrey; color: white; border: 5px solid black; padding: 15px; width: 100vw;">
                     <h2>Comments:</h2>
-                    <p>No one has commented on your songs yet!
-                        <br></p>
-
+                    <p>No one has commented on your songs yet!<br></p>
+                    
+                </div>
+                <div class="col-sm-12" style="background-color:dimgrey; color: white; border: 5px solid black; padding: 15px; width: 100vw;">
+                    <h2>Lessons:</h2>
+                    <p><button id="lessons" class="btn btn-unique btn-rounded btn-sm my-0" type="submit" style="background-color: black;">Click Here</button> to take music theory lessons! <br></p>
+                    
                 </div>
                 <div class="col-sm-12" style="background-color:dimgray; color: white; border: 5px solid black; padding: 15px;  width: 100vw;">
-
+                    <h3>Search for users to chat with and learn from!</h3> <p>Gather knowledge and share your own!</p>
+                    <form class="form-inline mr-auto">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button id="search" class="btn btn-unique btn-rounded btn-sm my-0" type="submit" style="background-color: black;">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -448,6 +529,16 @@
         var upload = document.querySelector("#upload");
         var upload2 = document.querySelector("#upload2");
 
+        var signinBTN = document.querySelector("#signinBTN");
+        var signupBTN = document.querySelector("#signupBTN");
+
+        var save = document.querySelector("#save");
+        
+        var search = document.querySelector("#search");
+        
+        var lessons = document.querySelector("#lessons");
+
+
 
 
         homeBTN.addEventListener("click", showHome, false);
@@ -456,6 +547,15 @@
         learnBTN.addEventListener("click", showLearn, false);
         submitBTN.addEventListener("click", showUpload2, false);
         submitBTN2.addEventListener("click", showUpload, false);
+
+        signinBTN.addEventListener("click", signin, false);
+        signupBTN.addEventListener("click", signup, false);
+
+        save.addEventListener("click", saveSong, false);
+        
+        search.addEventListener("click", searchUser, false);
+        
+        lessons.addEventListener("click", lessonsPost, false);
 
 
 
@@ -506,6 +606,20 @@
 
         }
 
+        function signin() {
+            window.location.reload();
+            window.alert("You have been signed in!");
+        }
+
+        function signup() {
+            window.location.reload();
+            window.alert("You have signed up and been signed in!");
+        }
+
+        function saveSong() {
+            window.alert("Your song has been saved!");
+        }
+
         function showWrite() {
             homePage.style.display = "none";
             writePage.style.display = "block";
@@ -541,6 +655,15 @@
             learnPage.style.display = "block";
 
         }
+            
+        function searchUser() {
+            window.alert("User can't be found!");
+        }
+        
+        function lessonsPost() {
+            window.alert("No lessons have posted yet!");
+        }
+        
     </script>
 
 </body></html>
